@@ -1,0 +1,16 @@
+---
+- name: install and restart apache
+  hosts: vmlab
+  user: student
+  become: yes
+  tasks:
+    - name: install apache
+      yum:
+        name: httpd
+        state: present
+
+    - name: restart apache
+      service:
+        name: httpd
+        state: restarted
+
